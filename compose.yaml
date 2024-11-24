@@ -1,0 +1,6 @@
+services:
+  restart_wifi:
+    image: liamnou/restart_wifi:latest
+    container_name: restart_wifi
+    env_file:
+      - .env
