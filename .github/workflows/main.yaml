@@ -27,6 +27,7 @@ jobs:
           host: lestar.ddns.net
           username: lestar
           key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
           source: .env
           target: /home/lestar/containers/${{ env.IMAGE_NAME }}/.env
 
@@ -35,6 +36,7 @@ jobs:
         with:
           host: lestar.ddns.net
           username: lestar
+          port: ${{ secrets.PORT }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/lestar/containers/${{ env.IMAGE_NAME }}
@@ -44,7 +46,7 @@ jobs:
         uses: sulthonzh/docker-remote-deployment-action@v0.1.2-beta
         with:
           remote_docker_host: lestar@lestar.ddns.net
-          remote_docker_port: 2831
+          remote_docker_port: ${{ secrets.PORT }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
           copy_stack_file: true
