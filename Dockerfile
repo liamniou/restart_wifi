@@ -4,4 +4,4 @@ WORKDIR /app
 
 COPY main.py .
 
-CMD ["python", "main.py", "--gh", "off", "&&", "python", "main.py", "--gh", "on"]
+CMD python main.py --gh off; python main.py --gh on
