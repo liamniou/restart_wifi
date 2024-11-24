@@ -40,7 +40,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/lestar/containers/${{ env.IMAGE_NAME }}
-            dotenvx decrypt .env
+            DOTENV_PRIVATE_KEY="${{ secrets.DOTENV_PRIVATE_KEY}}" dotenvx decrypt .env
 
       - name: Deploy compose
         uses: sulthonzh/docker-remote-deployment-action@v0.1.2-beta
