@@ -29,7 +29,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
           source: .env
-          target: /home/lestar/containers/${{ env.IMAGE_NAME }}/.env
+          target: /home/lestar/containers/${{ env.IMAGE_NAME }}
 
       - name: Execute command over SSH
         uses: appleboy/ssh-action@master
